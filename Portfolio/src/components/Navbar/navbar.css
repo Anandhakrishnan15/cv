@@ -1,0 +1,19 @@
+.navbar {
+    color: wheat;
+    width: 100%;
+    margin: auto;
+    @apply  flex justify-between sticky top-0 bg-black shadow-lg shadow-indigo-500/40 opacity-0 transition-opacity duration-300 ease-in-out
+}
+
+.show{
+    @apply opacity-100
+}
+.logo{
+    align-content: center;
+    font-size: 25px;
+    padding: 20px;
+}
+.icons li {
+    margin: 5px;
+    padding: 20px;
+}
