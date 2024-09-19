@@ -2,8 +2,8 @@ import { useEffect, useState } from "react"
 import "./navbar.css"
 const Nav = () => {
   
-  const [scrollData,setscrollData]= useState({y:0,lastY:0}) // get the postion of the Scroll bar y axis
-  const[navBarVisable,setNavbarvisible]=useState(false) // if it ture then show navbr else hide helps tom change the css property
+  const [scrollData,setscrollData]= useState({y:0,lastY:1}) // get the postion of the Scroll bar y axis
+  const[navBarVisable,setNavbarvisible]=useState(true) // if it ture then show navbr else hide helps tom change the css property
 
   useEffect(()=>{
     const handelScrolldata=()=>{ //function which will update the scroll movementn and give it to the setscrollData state
@@ -21,11 +21,11 @@ const Nav = () => {
 
   },[])
   useEffect(()=>{// over her we will use the conditonal operations and change the navbarvisibe 
-    console.log(scrollData);
-    if(scrollData.y <= 0){
-      setNavbarvisible(true)
-    }else{
+    // console.log(scrollData);
+    if(scrollData.y >20){
       setNavbarvisible(false)
+    }else{
+      setNavbarvisible(true)
     }
     if(scrollData.y < scrollData.lastY){// here if the last postion of the scroll is larger then hide 
       setNavbarvisible(true)        //if the user scroll back to then the the scroll bar will pop u again.
