@@ -1,5 +1,5 @@
 import React from 'react'
-import profileImg from "../../assets/kevinRushProfile.jpg"
+import profileImg from "../../assets/react.svg"
 import "./hero.css";
 
 
