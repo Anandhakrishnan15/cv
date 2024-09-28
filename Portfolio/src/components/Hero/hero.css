@@ -1,6 +1,4 @@
-.heroContainer{
-    border: 1px solid red;
-}
+
 .Herowraper{
     display: flex;
     justify-content: space-between;
@@ -11,17 +9,17 @@
 }
 .hero-Img{
     width: 50%;
-    border: 1px solid green;
+    /* border: 1px solid green; */
 }
 .hero-Img img{
-    width:80%;
+    width:70%;
     margin: auto;
 }
 .hero-D{
     width: 50%;
 }
 .hero-D h1{
-    font-size: 80px;
+    font-size: 100px;
     font-family: "Amatic SC", sans-serif;
     font-weight: 100;
     font-style: normal;

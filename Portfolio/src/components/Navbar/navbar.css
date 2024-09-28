@@ -1,12 +1,19 @@
+/* this id the css file i have used css and tailwind css  */
 .navbar {
     color: wheat;
     width: 100%;
     margin: auto;
-    @apply  flex justify-between sticky top-0 bg-black shadow-lg shadow-indigo-500/40 opacity-0 transition-opacity duration-500 ease-in-out
+    @apply  flex justify-between sticky top-0
+     bg-black shadow-lg shadow-indigo-500/40 
+     opacity-0 transition-opacity duration-500 ease-in-out
+     /* in this we are making the opacity-0 it will make 
+     the nav-bar hidden */
 }
 
 .show{
     @apply opacity-100 transition-opacity duration-700
+    /* over her we are makae the opacity-100 this will
+    make the nav-bar visible */
 }
 .logo{
     align-content: center;
