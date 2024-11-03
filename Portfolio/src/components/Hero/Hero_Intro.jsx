@@ -1,19 +1,17 @@
-import profileImg from "../../assets/react.svg"
+import profileImg from "../../assets/devloper-image.webp";
 import "./hero.css";
 const Hero_Intro = () => {
   return (
     <div className=" heroContainer">
       <div className="Herowraper">
         <div className="hero-D">
-          <h1 className=" selection:text-black">Anandhakrishnan</h1>
-          <span className="bg-gradient-to-r from-blue-300  to-indigo-600 inline-block text-transparent bg-clip-text">
-            web developer
+          <h1 className=" selection:text-black"> Hi, I’m Anandhakrishnan</h1>
+          <span className="bg-gradient-to-r from-blue-300 mt-10 to-indigo-600 inline-block text-transparent bg-clip-text">
+            a Web Developer
           </span>
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus
-            quidem illo impedit aperiam consequuntur doloremque laboriosam quod,
-            et necessitatibus minus, libero dolorem numquam suscipit consectetur
-            dignissimos modi rerum molestias fugiat!
+            Specializing in the MERN Stack with a tagline such as Creating
+            seamless, responsive web solutions for businesses and individuals.
           </p>
         </div>
         <div className="hero-Img">

@@ -1,0 +1,40 @@
+.contactcontainer{
+    margin: auto;
+    width: 90%;
+}
+.contactMeFormDetails{
+    font-size: 30px;
+    h1{
+        font-size: 60px;        
+    }
+    button{
+        width: 10%;
+        padding: 10px;
+        background-color: #0d0620a6;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 30px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+}
+ button:hover{
+    background-color:#2d214dd4;
+}
+.contactMeFormDetails p input,textarea{
+  border: none;
+  border-bottom: 2px solid #ddd;
+  background-color: transparent;
+  color: #eeeded;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+.contactMeFormDetails p textarea{
+    width: 100%;
+    line-height: 10%;
+}
+.contactMeFormDetails p input::placeholder{
+     color: #bbb;
+}

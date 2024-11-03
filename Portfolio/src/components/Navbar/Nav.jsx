@@ -45,7 +45,7 @@ const Nav = () => {
   },[scrollData])
 
   return (
-    <nav className={`navbar ${navBarVisable ?'show':'' }`} dir="ltr">
+    <nav className={`navbar ${navBarVisable ?'show':'' }`} dir="ltr" style={{margin:"0px"}}>
       {/* here if the navBarViaibe is true then it will activate the show class from the css file else " " */}
       <div className="logo">Ak</div>
       <div className="icons">

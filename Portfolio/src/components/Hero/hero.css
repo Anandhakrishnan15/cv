@@ -33,6 +33,10 @@
     font-size: 40px;
     /* padding-left: 0px; */
 }
+.hero-D p{
+    font-size: 25px;
+}
+
 /* ----------------------------------------------- */
 
 @media only screen and (max-width: 600px) {

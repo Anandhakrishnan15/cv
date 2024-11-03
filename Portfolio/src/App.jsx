@@ -3,6 +3,7 @@ import "./App.css";
 import Nav from "./components/Navbar/Nav";
 import Hero_Intro from "./components/Hero/Hero_Intro";
 import About_Me from "./components/About/About_Me";
+import Contact from "./components/Contacts/Contact";
 
 function App() {
   return (
@@ -10,10 +11,11 @@ function App() {
       <div className="fixed top-0 -z-10 h-full w-full">
         <div className="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
       </div>
-      <div className="container mx-auto px-8">
+      <div className="container mx-auto ">
         <Nav />
         <Hero_Intro />
         <About_Me/>
+        <Contact/>
        
       </div>
     </div>
