@@ -2,21 +2,21 @@
 .Herowraper{
     display: flex;
     justify-content: space-between;
-    /* align-items: ce; */
+    align-items: center;
     margin: auto;
     width: 90%;
     padding: 10px;
 }
 .hero-Img{
-    width: 50%;
+    width:auto;
     /* border: 1px solid green; */
 }
 .hero-Img img{
     width:70%;
-    margin: auto;
+    margin:20px auto;
 }
 .hero-D{
-    width: 50%;
+    width: 60%;
 }
 .hero-D h1{
     font-size: 100px;
@@ -27,6 +27,7 @@
     text-transform: capitalize;
     padding: 0;
     margin-top: 30px;
+    line-height: 100px;
     /* padding: 0px; */
 }
 .hero-D span{
@@ -37,6 +38,11 @@
     font-size: 25px;
 }
 
+.all-about-heading{
+    display: flex;
+    justify-content: center;
+    
+}
 /* ----------------------------------------------- */
 
 @media only screen and (max-width: 600px) {

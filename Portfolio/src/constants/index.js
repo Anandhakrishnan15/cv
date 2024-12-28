@@ -74,3 +74,24 @@ export const CONTACT = {
   phoneNo: "+12 4555 666 00 ",
   email: "me@example.com",
 };
+
+export const CARDS_DETAILS= [
+  {
+    heading:"Eduaction",
+    Image:"img not add yet",
+    details:"some discriptions and a read more bore button for new page",
+
+  },
+    {
+    heading:"Projects",
+    Image:"img not add yet",
+    details:"some discriptions and a read more bore button for new page",
+
+  },
+    {
+    heading:"Carrer",
+    Image:"img not add yet",
+    details:"some discriptions and a read more bore button for new page",
+
+  },
+];

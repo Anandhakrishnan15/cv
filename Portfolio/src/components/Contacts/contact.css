@@ -4,11 +4,12 @@
 }
 .contactMeFormDetails{
     font-size: 30px;
+   
     h1{
         font-size: 60px;        
     }
     button{
-        width: 10%;
+     
         padding: 10px;
         background-color: #0d0620a6;
         color: #fff;
@@ -23,18 +24,31 @@
  button:hover{
     background-color:#2d214dd4;
 }
-.contactMeFormDetails p input,textarea{
+.contactMeFormDetails div input,textarea{
   border: none;
   border-bottom: 2px solid #ddd;
   background-color: transparent;
-  color: #eeeded;
+ text-transform: capitalize;
   outline: none;
   transition: border-color 0.3s ease;
 }
-.contactMeFormDetails p textarea{
-    width: 100%;
-    line-height: 10%;
+.contactMeFormDetails div textarea{
+      @apply bg-gradient-to-r from-blue-300 w-10/12 to-indigo-600 inline-block bg-clip-text
 }
-.contactMeFormDetails p input::placeholder{
-     color: #bbb;
+.contactMeFormDetails div textarea::placeholder{
+     color: #9e93bb;
+}
+.contactMeFormDetails div input::placeholder{
+     text-align: center;
+     color: #ab9ecd;
+     animation: blink 1s step-end infinite;
+}
+.ContactFormholder{
+    display: flex;
+    align-items: end;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
 }

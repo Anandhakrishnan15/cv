@@ -1,12 +1,21 @@
+import React, { Suspense } from "react";
 import profileImg from "../../assets/devloper-image.webp";
 import "./hero.css";
 const Hero_Intro = () => {
+  const SplineComponent = React.lazy(() => import("@splinetool/react-spline"));
   return (
     <div className=" heroContainer">
+      {" "}
+      <div className="aBoutmeHerader">
+        <h1 className="bg-gradient-to-r from-blue-300  to-indigo-600 inline-block text-transparent bg-clip-text">
+           All About <span>Me</span>
+        </h1> 
+      </div>
+    
       <div className="Herowraper">
         <div className="hero-D">
           <h1 className=" selection:text-black"> Hi, I’m Anandhakrishnan</h1>
-          <span className="bg-gradient-to-r from-blue-300 mt-10 to-indigo-600 inline-block text-transparent bg-clip-text">
+          <span className="bg-gradient-to-r from-blue-300 mt-1 to-indigo-600 inline-block text-transparent bg-clip-text">
             a Web Developer
           </span>
           <p>
@@ -15,11 +24,14 @@ const Hero_Intro = () => {
           </p>
         </div>
         <div className="hero-Img">
-          <img src={profileImg} alt="profileImg" />
+          {/* <img src={profileImg} alt="profileImg" /> */}
+          <Suspense fallback={<div className="loader">Loading...</div>}>
+            <SplineComponent scene="https://prod.spline.design/CUN8Y70EQc3yfGGU/scene.splinecode" />
+          </Suspense>
         </div>
       </div>
     </div>
   );
-}
+};
 
-export default Hero_Intro
+export default Hero_Intro;
