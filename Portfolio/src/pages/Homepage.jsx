@@ -5,7 +5,7 @@ import { Link } from "react-scroll";
 import HeroSection from "../components/Hero/Hero_Intro";
 import AboutMeHome from "./About/AboutMeHome";
 import Skills from "./skills/Skills";
-import CursoeSkilss from "./skills/cursoeSkilss";
+import CursoeSkilss from "./skills/CursoeSkilss";
 import FeaturedProjects from "./Projects/FeaturedProjects";
 // import AboutMe from "./AboutMe";
 // import Skills from "./Skills";
@@ -66,7 +66,7 @@ const Homepage = () => {
         </div>
       </motion.section> */}
       {/* Projects */}
-      <CursoeSkilss />
+      <CursoeSkilss/>
       <FeaturedProjects/>
       {/* Contact */}
       <motion.section
