@@ -1,0 +1,96 @@
+/* Contact Form Styles */
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: transparent; /* No background */
+  padding: 20px;
+}
+
+/* Glassmorphic Effect */
+.contact-holder {
+  width: 100%;
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.contact-holder:hover {
+  transform: scale(1.02);
+}
+
+.form-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+/* Form Labels */
+.form-label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+/* Minimalist Input Fields */
+.form-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #ffffff;
+  font-size: 16px;
+  color: #ffffff;
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.form-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.form-input:focus {
+  border-bottom: 2px solid #00aaff;
+}
+
+/* Submit Button */
+.contact-submit-button {
+  text-align: center;
+}
+
+.submit-button {
+  background: #00aaff;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.submit-button:hover {
+  background: #0088cc;
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-holder {
+    padding: 20px;
+  }
+
+  .form-title {
+    font-size: 20px;
+  }
+}

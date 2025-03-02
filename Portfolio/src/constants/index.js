@@ -2,6 +2,11 @@ import project1 from "../assets/projects/project-1.jpg";
 import project2 from "../assets/projects/project-2.jpg";
 import project3 from "../assets/projects/project-3.jpg";
 import project4 from "../assets/projects/project-4.jpg";
+import working from "../assets/SVG/learning.png"
+import Learning from "../assets/SVG/Projects.png"
+import Graguation from "../assets/SVG/Studing.png"
+
+
 
 export const HERO_CONTENT = `I am a passionate full stack developer with a knack for crafting robust and scalable web applications. With 5 years of hands-on experience, I have honed my skills in front-end technologies like React and Next.js, as well as back-end technologies like Node.js, MySQL, PostgreSQL, and MongoDB. My goal is to leverage my expertise to create innovative solutions that drive business growth and deliver exceptional user experiences.`;
 
@@ -78,19 +83,19 @@ export const CONTACT = {
 export const CARDS_DETAILS= [
   {
     heading:"Eduaction",
-    Image:"img not add yet",
+    Image: Graguation,
     details:"some discriptions and a read more bore button for new page",
 
   },
     {
     heading:"Projects",
-    Image:"img not add yet",
+    Image:Learning,
     details:"some discriptions and a read more bore button for new page",
 
   },
     {
     heading:"Carrer",
-    Image:"img not add yet",
+    Image:working,
     details:"some discriptions and a read more bore button for new page",
 
   },

@@ -4,11 +4,13 @@
     width: 100%;
     margin: auto;
     padding: 0;
+    z-index: 666;
     @apply  flex justify-between sticky top-0
      bg-black shadow-lg shadow-indigo-500/40 
      opacity-0 transition-opacity duration-500 ease-in-out
      /* in this we are making the opacity-0 it will make 
      the nav-bar hidden */
+     
 }
 
 .show{

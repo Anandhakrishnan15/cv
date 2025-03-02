@@ -1,37 +1,74 @@
-import React, { Suspense } from "react";
-import profileImg from "../../assets/devloper-image.webp";
-import "./hero.css";
-const Hero_Intro = () => {
-  const SplineComponent = React.lazy(() => import("@splinetool/react-spline"));
+import React, { Suspense, useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { Link } from "react-scroll";
+import "./HeroSection.css";
+import TypingText from "../TypingText";
+
+const SplineComponent = React.lazy(() => import("@splinetool/react-spline"));
+
+const HeroSection = () => {
+
   return (
-    <div className=" heroContainer">
-      {" "}
-      <div className="aBoutmeHerader">
-        <h1 className="bg-gradient-to-r from-blue-300  to-indigo-600 inline-block text-transparent bg-clip-text">
-           All About <span>Me</span>
-        </h1> 
-      </div>
-    
-      <div className="Herowraper">
-        <div className="hero-D">
-          <h1 className=" selection:text-black"> Hi, I’m Anandhakrishnan</h1>
-          <span className="bg-gradient-to-r from-blue-300 mt-1 to-indigo-600 inline-block text-transparent bg-clip-text">
-            a Web Developer
-          </span>
-          <p>
-            Specializing in the MERN Stack with a tagline such as Creating
-            seamless, responsive web solutions for businesses and individuals.
-          </p>
+    <motion.section
+      className="Herowraper relative overflow-hidden flex flex-col md:flex-row items-center justify-between"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
+      <div className="hero-D text-center md:text-left space-y-6">
+        <h1 className="text-4xl md:text-6xl font-bold">
+          Hi, I'm <br />
+          Anandhakrishnan{" "}
+        </h1>
+        <TypingText
+          texts={[
+            "Transforming ideas into high-performance web solutions.",
+            "Building modern, scalable, and responsive web applications.",
+            "Crafting seamless digital experiences with the latest technologies.",
+            "Creating web solutions that drive success and innovation.",
+          ]}
+          typingSpeed={120}
+          deletingSpeed={60}
+          pauseTime={2500}
+        />
+
+        <p className="text-lg md:text-xl mt-4 max-w-lg">
+          Creating seamless, responsive web solutions for businesses and
+          individuals.
+        </p>
+        <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6" style={{marginTop:'30px', marginBottom:'30px'}}>
+          <Link
+            to="projects"
+            smooth={true}
+            duration={500}
+            className="bg-blue-500 text-white text-lg font-semibold px-8 py-3 rounded-xl shadow-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105"
+          >
+            🚀 View My Work
+          </Link>
+          <Link
+            to="contact"
+            smooth={true}
+            duration={500}
+            className="bg-gray-800 text-white text-lg font-semibold px-8 py-3 rounded-xl shadow-lg hover:bg-gray-900 transition-all duration-300 transform hover:scale-105"
+          >
+            📩 Contact Me
+          </Link>
         </div>
-        <div className="hero-Img">
-          {/* <img src={profileImg} alt="profileImg" /> */}
-          <Suspense fallback={<div className="loader">Loading...</div>}>
-            <SplineComponent scene="https://prod.spline.design/CUN8Y70EQc3yfGGU/scene.splinecode" />
-          </Suspense>
-        </div>
       </div>
-    </div>
+      {/* Spline 3D Model */}
+      <div className="hero-Img w-full md:w-1/2 flex justify-center items-center mt-6 md:mt-0">
+        <Suspense
+          fallback={
+            <div className="loader-container">
+              <div className="loader"></div>
+            </div>
+          }
+        >
+          <SplineComponent scene="https://prod.spline.design/CUN8Y70EQc3yfGGU/scene.splinecode" />
+        </Suspense>
+      </div>
+    </motion.section>
   );
 };
 
-export default Hero_Intro;
+export default HeroSection;

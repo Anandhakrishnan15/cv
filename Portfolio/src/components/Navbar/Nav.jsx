@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import "./navbar.css"
+import { Link } from "react-router-dom"
 const Nav = () => {
   
   const [scrollData,setscrollData]= useState({y:0,lastY:1}) 
@@ -45,19 +46,28 @@ const Nav = () => {
   },[scrollData])
 
   return (
-    <nav className={`navbar ${navBarVisable ?'show':'' }`} dir="ltr" style={{margin:"0px"}}>
+    <nav
+      className={`navbar ${navBarVisable ? "show" : ""}`}
+      dir="ltr"
+      style={{ margin: "0px" }}
+    >
       {/* here if the navBarViaibe is true then it will activate the show class from the css file else " " */}
       <div className="logo">Ak</div>
       <div className="icons">
         <ul className="flex felx-row justify-between">
-            <li>item-1</li>
-            <li>item-2</li>
-            <li>item-n</li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About Me</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
         </ul>
       </div>
-
     </nav>
-  )
+  );
 }
 
 export default Nav
