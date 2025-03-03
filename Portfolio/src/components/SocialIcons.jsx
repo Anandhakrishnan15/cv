@@ -31,22 +31,22 @@ const SocialIcons = () => {
     >
       {[
         {
-          href: "https://wa.me/91XXXXXXXXXX",
+          href: "https://wa.me/917510749518",
           icon: <FaWhatsapp />,
           className: "whatsapp",
         },
         {
-          href: "https://www.linkedin.com/in/yourprofile",
+          href: "https://www.linkedin.com/in/anandha-krishnan-5b0a36248",
           icon: <FaLinkedin />,
           className: "linkedin",
         },
         {
-          href: "https://www.instagram.com/yourprofile",
+          href: "https://www.instagram.com/captain_anandhu_/",
           icon: <FaInstagram />,
           className: "instagram",
         },
         {
-          href: "mailto:your.email@example.com",
+          href: "mailto:kanandha207@gmail.com",
           icon: <FaEnvelope />,
           className: "email",
         },

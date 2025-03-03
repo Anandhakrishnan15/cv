@@ -35,8 +35,8 @@ function App() {
             </Routes>
             {/* Footer */}
             <footer className="py-6 text-center bg-gray-900">
-  <p>© 2025 Anandhakrishnan. All Rights Reserved.</p>
-</footer>
+              <p>© 2025 Anandhakrishnan. All Rights Reserved.</p>
+            </footer>
           </Router>
         </div>
       </div>
@@ -45,6 +45,8 @@ function App() {
 }
 
 export default App;
-{/* <footer className="py-6 text-center bg-gray-900">
+{
+  /* <footer className="py-6 text-center bg-gray-900">
   <p>© 2025 Anandhakrishnan. All Rights Reserved.</p>
-</footer>; */}
+</footer>; */
+}

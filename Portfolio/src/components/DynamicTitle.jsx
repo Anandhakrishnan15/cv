@@ -3,11 +3,11 @@ import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 const titles = {
-  "/": "Home | Anandhakrishnan",
+  "/": "Anandhakrishnan",
   "/about": "About Me | Anandhakrishnan",
   "/contact": "Contact | Anandhakrishnan",
   "/projects": "Projects | Anandhakrishnan",
-  404: "404 - Page Not Found | Anandhakrishnan",
+  404: "404 - Page Not Found",
 };
 
 const DynamicTitle = () => {
