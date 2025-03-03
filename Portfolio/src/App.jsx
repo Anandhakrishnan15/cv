@@ -5,28 +5,46 @@ import Nav from "./components/Navbar/Nav";
 import About_Me from "./pages/About/About_Me";
 import Contact from "./pages/Contacts/Contact";
 import Homepage from "./pages/Homepage";
+import ProjectDetails from "./pages/Projects/ProjectDetails";
+// import FeaturedProjects from "./pages/Projects/FeaturedProjects";
+import ProjectsPage from "./pages/Projects/ProjectsPage";
+import NotFound from "./components/NotFound";
+import DynamicTitle from "./components/DynamicTitle";
+import { HelmetProvider } from "react-helmet-async";
 // import FloatingRocket from "./components/Hero/SplineRocket";
 // import FAQPage from "./pages/Projects/FAQPage";
 
 function App() {
   return (
-    <div className="overflow -x-hidden text-netural-300 antialiased selection:bg-indigo-500 selection:text-blue-100">
-      <div className="fixed top-0 -z-10 h-full w-full">
-        <div className="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
+    <HelmetProvider>
+      <div className="overflow -x-hidden text-netural-300 antialiased selection:bg-indigo-500 selection:text-blue-100">
+        <div className="fixed top-0 -z-10 h-full w-full">
+          <div className="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
+        </div>
+        <div className="container mx-auto ">
+          <Router>
+            <DynamicTitle /> {/* Dynamically change page titles */}
+            <Nav />
+            <Routes>
+              <Route path="/" element={<Homepage />} />
+              <Route path="/about" element={<About_Me />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/projects" element={<ProjectsPage />} />
+              <Route path="/projects/:projectId" element={<ProjectDetails />} />
+              <Route path="*" element={<NotFound />} /> {/* 404 Page */}
+            </Routes>
+            {/* Footer */}
+            <footer className="py-6 text-center bg-gray-900">
+  <p>© 2025 Anandhakrishnan. All Rights Reserved.</p>
+</footer>
+          </Router>
+        </div>
       </div>
-      <div className="container mx-auto ">
-        <Router>
-          <Nav />
-          <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/about" element={<About_Me />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </Router>
-        {/* <FAQPage/> */}
-      </div>
-    </div>
+    </HelmetProvider>
   );
 }
 
 export default App;
+{/* <footer className="py-6 text-center bg-gray-900">
+  <p>© 2025 Anandhakrishnan. All Rights Reserved.</p>
+</footer>; */}

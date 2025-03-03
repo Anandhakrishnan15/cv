@@ -1,0 +1,70 @@
+.contact-section {
+  text-align: center;
+  padding: 60px 20px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(50, 50, 50, 0.4));
+  backdrop-filter: blur(10px); /* Glassmorphism effect */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid #ffffff33;
+  /* max-width: 700px; */
+  width: 90%;
+  margin: 30px auto;
+}
+
+.contact-section h2 {
+  font-size: 2.2rem;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.contact-section p {
+  font-size: 1.2rem;
+  color: #ddd;
+}
+
+.contact-info {
+  margin-top: 20px;
+}
+
+.phone-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.social-icons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.icon {
+  font-size: 2.5rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+  border-radius: 50%;
+  padding: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+}
+
+.icon:hover {
+  transform: scale(1.2);
+}
+
+/* Specific Icon Colors */
+.whatsapp { background: #25D366; color: white; }
+.linkedin { background: #0077B5; color: white; }
+.instagram { background: #E4405F; color: white; }
+.email { background: #D44638; color: white; }
+
+/* Hover Effects */
+.whatsapp:hover { background: #1EBB5A; }
+.linkedin:hover { background: #005E93; }
+.instagram:hover { background: #C13584; }
+.email:hover { background: #B83230; }

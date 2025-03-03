@@ -1,0 +1,52 @@
+<svg
+  width="200"
+  height="200"
+  viewBox="0 0 200 200"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <!-- Background gradient animation -->
+  <defs>
+    <linearGradient id="grad">
+      <stop offset="0%" stop-color="#6a11cb">
+        <animate
+          attributeName="stop-color"
+          values="#6a11cb; #ff8a00; #6a11cb"
+          dur="5s"
+          repeatCount="indefinite"
+        />
+      </stop>
+      <stop offset="100%" stop-color="#2575fc">
+        <animate
+          attributeName="stop-color"
+          values="#2575fc; #ff0080; #2575fc"
+          dur="5s"
+          repeatCount="indefinite"
+        />
+      </stop>
+    </linearGradient>
+  </defs>
+
+  <!-- Animated Background -->
+  <rect width="200" height="200" rx="30" fill="url(#grad)" />
+
+  <!-- Shining effect on text -->
+  <text
+    x="50%"
+    y="50%"
+    font-family="Arial, sans-serif"
+    font-size="80"
+    font-weight="bold"
+    fill="white"
+    text-anchor="middle"
+    alignment-baseline="middle"
+  >
+    AK
+    <animate
+      attributeName="fill"
+      values="white; #ffff99; white"
+      dur="10s"
+      repeatCount="indefinite"
+    />
+  </text>
+</svg>

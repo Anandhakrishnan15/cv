@@ -1,3 +1,6 @@
+import { motion } from "framer-motion";
+import "./Aboutme.css";
+import SocialIcons from "../../components/SocialIcons";
 const aboutMeData = {
   introduction:
     "Hello! I'm a MERN Stack Developer with over 1 year of experience in web development. I specialize in creating dynamic and responsive web applications using React.js, Node.js, MongoDB, Express.js, JavaScript, and SQL. With a passion for clean code and seamless user experiences, I have worked on multiple freelancing projects, web applications, and advertisements that deliver high performance and scalability.",
@@ -27,8 +30,8 @@ const aboutMeData = {
   ],
   currentProjects: [
     "Developing an Image Storage & Management Platform (similar to Cloudinary), integrating cloud-based storage solutions.",
-    "Building my personal portfolio website to showcase my work and projects.",
-    "Running a pencil sketching channel, focusing on 'copy-paste art'.",
+    "Building my personal portfolio website to showcase my work and projects, along with a review system where clients can share feedback on my work.",
+    "Working on 'Saiego,' a sister company of Girish Ego, focused on developing a cutting-edge webpage for seamless digital solutions.",
   ],
   whyWorkWithMe: [
     "Problem-Solving Mindset: Finding the best solutions for complex web challenges.",
@@ -43,71 +46,158 @@ const aboutMeData = {
 
 const AboutMe = () => {
   return (
-    <div className="container mx-auto p-6">
-      <h1 className="text-4xl font-bold mb-4">About Me</h1>
-      <p className="text-lg mb-6">{aboutMeData.introduction}</p>
+    <motion.div
+      className="about-section"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.8 }}
+    >
+      {/* Introduction */}
+      <motion.div
+        className="about-content"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{ duration: 0.8 }}
+      >
+        <h1 className="about-title">About Me</h1>
+        <p className="about-text">{aboutMeData.introduction}</p>
+      </motion.div>
 
-      <h2 className="text-2xl font-semibold mt-6">What I Do</h2>
-      <ul className="list-disc pl-5 mb-6">
-        {aboutMeData.skills.map((skill, index) => (
-          <li key={index}>{skill}</li>
-        ))}
-      </ul>
-
-      <h2 className="text-2xl font-semibold mt-6">Experience & Achievements</h2>
-      {aboutMeData.experience.map((exp, index) => (
-        <div key={index} className="mb-4">
-          <h3 className="text-xl font-bold">{exp.title}</h3>
-          <p>{exp.description}</p>
+      {/* Skills Section */}
+      <motion.div
+        className="about-content"
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{ duration: 0.8 }}
+      >
+        <h2 className="section-heading">What I Do</h2>
+        <div className="skills-container">
+          {aboutMeData.skills.map((skill, index) => {
+            const [title, description] = skill.split(":");
+            return (
+              <motion.div
+                key={index}
+                className="skill-card"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                <h3 className="skill-title">{title.trim()}</h3>
+                <p className="skill-description">{description.trim()}</p>
+              </motion.div>
+            );
+          })}
         </div>
-      ))}
+      </motion.div>
 
-      <h2 className="text-2xl font-semibold mt-6">Current Projects</h2>
-      <ul className="list-disc pl-5 mb-6">
-        {aboutMeData.currentProjects.map((project, index) => (
-          <li key={index}>{project}</li>
-        ))}
-      </ul>
+      {/* Experience Section */}
+      <motion.div
+        className="about-content"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{ duration: 0.8 }}
+      >
+        <h2 className="section-heading">Experience & Achievements</h2>
+        <div className="skills-container">
+          {aboutMeData.experience.map((exp, index) => (
+            <motion.div
+              key={index}
+              className="experience-card"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
+              <h3 className="exp-title">{exp.title}</h3>
+              <p className="exp-text">{exp.description}</p>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
 
-      <h2 className="text-2xl font-semibold mt-6">Why Work With Me?</h2>
-      <ul className="list-disc pl-5 mb-6">
-        {aboutMeData.whyWorkWithMe.map((reason, index) => (
-          <li key={index}>{reason}</li>
-        ))}
-      </ul>
+      {/* Projects Section */}
+      <motion.div
+        className="about-content"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{ duration: 0.8 }}
+      >
+        <h2 className="section-heading">Current Projects</h2>
+        <ul className="about-list">
+          {aboutMeData.currentProjects.map((project, index) => (
+            <motion.li
+              key={index}
+              className="list-item"
+              whileHover={{ scale: 1.05 }}
+            >
+              <pre className="details">{project}</pre>
+            </motion.li>
+          ))}
+        </ul>
+      </motion.div>
 
-      <h2 className="text-2xl font-semibold mt-6">A Little More About Me</h2>
-      <p className="mb-6">{aboutMeData.personalTouch}</p>
+      {/* Why Work With Me */}
+      <motion.div
+        className="about-content"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{ duration: 0.8 }}
+      >
+        <h2 className="section-heading">Why Work With Me?</h2>
+        <ul className="about-list">
+          {aboutMeData.whyWorkWithMe.map((reason, index) => (
+            <motion.li
+              key={index}
+              className="list-item"
+              whileHover={{ scale: 1.05 }}
+            >
+              <pre className="details">{reason}</pre>
+            </motion.li>
+          ))}
+        </ul>
+      </motion.div>
 
-      <h2 className="text-2xl font-semibold mt-6">Let’s Connect!</h2>
-      <p className="mb-6">{aboutMeData.contactCTA}</p>
-    </div>
+      {/* Contact Section */}
+      <motion.div
+        className="about-content contact-section"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{ duration: 0.8 }}
+      >
+        <h2 className="section-heading">Let’s Connect!</h2>
+        <p className="about-text">{aboutMeData.contactCTA}</p>
+        <SocialIcons/>
+        {/* <div className="social-buttons">
+          <motion.a
+            href="mailto:your.email@example.com"
+            className="social-btn"
+            whileHover={{ scale: 1.1 }}
+          >
+            📩 Email
+          </motion.a>
+          <motion.a
+            href="https://linkedin.com/in/yourprofile"
+            className="social-btn"
+            whileHover={{ scale: 1.1 }}
+          >
+            🔗 LinkedIn
+          </motion.a>
+          <motion.a
+            href="https://wa.me/yourwhatsappnumber"
+            className="social-btn"
+            whileHover={{ scale: 1.1 }}
+          >
+            💬 WhatsApp
+          </motion.a>
+        </div> */}
+      </motion.div>
+    </motion.div>
   );
 };
 
 export default AboutMe;
 
-// import React from "react";
-// import "./Aboutme.css"
-// import { CARDS_DETAILS } from "../../constants";
-// const About_Me = () => {
-//   return (
-//     <div className="all-about-meCard">
-//       <div className="AboutMeCards-containers">
-//         <div className="AboutMeCardsHolders">
-//           {CARDS_DETAILS.map((CD, CDi) => (
-//             <div className="cards" key={CDi}>
-//               <h1>{CD.heading}</h1>
-//               <div className="cardsImg">
-//                 <img src={CD.Image} alt={CD.Image} />
-//               </div>
-//               <div className="cardsInfo">{CD.details}</div>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default About_Me;

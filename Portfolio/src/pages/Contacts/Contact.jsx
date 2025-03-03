@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import FormFields from "./FormFields";
 import "./ContactForm.css"; // Import the CSS file
+import SocialIcons from "../../components/SocialIcons";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,8 @@ const ContactForm = () => {
     message: "",
   });
 
+  const [isLoading, setIsLoading] = useState(false); // Loading state
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -17,7 +20,30 @@ const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    setIsLoading(true); // Show loading
+
+    setTimeout(() => {
+      setIsLoading(false); // Hide loading after 5 sec
+
+      const { name, company, email, message } = formData;
+      const subject = `New Contact Inquiry from ${name}`;
+      const body = `Name: ${name}\nCompany: ${
+        company || "N/A"
+      }\nEmail: ${email}\n\n${message}`;
+
+      // Open email client
+      window.location.href = `mailto:kanandha207@gmail.com?subject=${encodeURIComponent(
+        subject
+      )}&body=${encodeURIComponent(body)}`;
+
+      // Clear input fields
+      setFormData({
+        name: "",
+        company: "",
+        email: "",
+        message: "",
+      });
+    }, 8000); // 8-second delay
   };
 
   const formFields = [
@@ -50,25 +76,32 @@ const ContactForm = () => {
   return (
     <div className="contact-container">
       <div className="contact-holder glass-effect">
-        <div className="contact-form">
-          <form onSubmit={handleSubmit}>
-            <div className="contact-form-details">
-              <h1 className="form-title">Get in Touch</h1>
-              <div className="contact-form-holder">
-                <FormFields
-                  formData={formData}
-                  handleChange={handleChange}
-                  formFields={formFields}
-                />
-                <div className="contact-submit-button">
-                  <button type="submit" className="submit-button">
-                    Send Message
-                  </button>
+        {isLoading ? (
+          <div className="loading-overlay">
+            <h2>Sending Message...</h2>
+          </div>
+        ) : (
+          <div className="contact-form">
+            <form onSubmit={handleSubmit}>
+              <div className="contact-form-details">
+                <h1 className="form-title">Get in Touch</h1>
+                <div className="contact-form-holder">
+                  <FormFields
+                    formData={formData}
+                    handleChange={handleChange}
+                    formFields={formFields}
+                  />
+                  <div className="contact-submit-button">
+                    <button type="submit" className="submit-button">
+                      Send Message
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          </form>
-        </div>
+            </form>
+          </div>
+        )}
+        <SocialIcons />
       </div>
     </div>
   );

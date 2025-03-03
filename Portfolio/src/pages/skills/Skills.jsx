@@ -19,7 +19,7 @@ const Skills = () => {
   return (
     <motion.section
       ref={ref}
-      className="py-20 px-6 text-center bg-gray-800 text-white rounded-xl shadow-lg"
+      className="py-20 px-6 text-center text-white"
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
@@ -37,7 +37,7 @@ const Skills = () => {
         {skills.map((tech, index) => (
           <motion.span
             key={tech}
-            className="bg-gray-700 px-6 py-3 rounded-lg text-lg font-semibold shadow-md"
+            className="bg-gray-700 bg-opacity-30 backdrop-blur-md px-6 py-3 rounded-lg text-lg font-semibold shadow-md"
             whileHover={{ scale: 1.1 }}
             initial={{ opacity: 0, y: 10 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
