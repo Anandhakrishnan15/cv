@@ -1,18 +1,15 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Nav from "./components/Navbar/Nav";
-// import Hero_Intro from "./components/Hero/Hero_Intro";
 import About_Me from "./pages/About/About_Me";
 import Contact from "./pages/Contacts/Contact";
 import Homepage from "./pages/Homepage";
 import ProjectDetails from "./pages/Projects/ProjectDetails";
-// import FeaturedProjects from "./pages/Projects/FeaturedProjects";
 import ProjectsPage from "./pages/Projects/ProjectsPage";
 import NotFound from "./components/NotFound";
 import DynamicTitle from "./components/DynamicTitle";
 import { HelmetProvider } from "react-helmet-async";
-// import FloatingRocket from "./components/Hero/SplineRocket";
-// import FAQPage from "./pages/Projects/FAQPage";
+;
 
 function App() {
   return (
@@ -45,8 +42,4 @@ function App() {
 }
 
 export default App;
-{
-  /* <footer className="py-6 text-center bg-gray-900">
-  <p>© 2025 Anandhakrishnan. All Rights Reserved.</p>
-</footer>; */
-}
+
