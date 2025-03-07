@@ -37,7 +37,11 @@ const ContactMe = () => {
       variants={fadeVariant}
     >
       {/* Animated Heading */}
-      <motion.h2 variants={fadeVariant}>Contact Me</motion.h2>
+      <motion.h2 style={{
+        fontSize:'50px',
+        fontWeight:'bold'
+      }}
+       variants={fadeVariant}>Contact Me</motion.h2>
 
       <p>Let's discuss your project!</p>
 

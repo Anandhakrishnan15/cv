@@ -51,11 +51,12 @@
 }
 
 /* Project Details */
-h3 {
-  font-size: 20px;
-  margin-bottom: 8px;
-  color: #f9a826;
-}
+
+
+  .section-title{
+    font-size: 40px;
+    font-weight: bold;
+  }
 
 p {
   font-size: 16px;
@@ -157,6 +158,11 @@ h1 {
   margin-bottom: 20px;
   border-left: 4px solid #f9a826;
   font-family: "Courier New", Courier, monospace;
+   white-space: pre-wrap; /* Ensures text wraps properly */
+  font-family: inherit; /* Matches the page font */
+  padding: 10px;
+  /* background: #f8f9fa; */
+  border-radius: 5px;
 }
 
 .tech-list {

@@ -1,11 +1,20 @@
 import { motion } from "framer-motion";
-import {
-  FaWhatsapp,
-  FaLinkedin,
-  FaInstagram,
-  FaEnvelope,
-} from "react-icons/fa";
+import { useMemo, Suspense, lazy } from "react";
 import "../pages/Contacts/Contact.css";
+
+// Lazy load the icons dynamically
+const LazyFaWhatsapp = lazy(() =>
+  import("react-icons/fa").then((mod) => ({ default: mod.FaWhatsapp }))
+);
+const LazyFaLinkedin = lazy(() =>
+  import("react-icons/fa").then((mod) => ({ default: mod.FaLinkedin }))
+);
+const LazyFaInstagram = lazy(() =>
+  import("react-icons/fa").then((mod) => ({ default: mod.FaInstagram }))
+);
+const LazyFaEnvelope = lazy(() =>
+  import("react-icons/fa").then((mod) => ({ default: mod.FaEnvelope }))
+);
 
 const containerVariants = {
   hidden: { opacity: 0, scale: 0.9 },
@@ -22,6 +31,36 @@ const fadeVariant = {
 };
 
 const SocialIcons = () => {
+  const socialLinks = useMemo(
+    () => [
+      {
+        href: "https://wa.me/917510749518",
+        icon: <LazyFaWhatsapp />,
+        className: "whatsapp",
+        label: "WhatsApp",
+      },
+      {
+        href: "https://www.linkedin.com/in/anandha-krishnan-5b0a36248",
+        icon: <LazyFaLinkedin />,
+        className: "linkedin",
+        label: "LinkedIn",
+      },
+      {
+        href: "https://www.instagram.com/captain_anandhu_/",
+        icon: <LazyFaInstagram />,
+        className: "instagram",
+        label: "Instagram",
+      },
+      {
+        href: "mailto:kanandha207@gmail.com",
+        icon: <LazyFaEnvelope />,
+        className: "email",
+        label: "Email",
+      },
+    ],
+    []
+  );
+
   return (
     <motion.div
       className="social-icons"
@@ -29,40 +68,24 @@ const SocialIcons = () => {
       initial="hidden"
       animate="visible"
     >
-      {[
-        {
-          href: "https://wa.me/917510749518",
-          icon: <FaWhatsapp />,
-          className: "whatsapp",
-        },
-        {
-          href: "https://www.linkedin.com/in/anandha-krishnan-5b0a36248",
-          icon: <FaLinkedin />,
-          className: "linkedin",
-        },
-        {
-          href: "https://www.instagram.com/captain_anandhu_/",
-          icon: <FaInstagram />,
-          className: "instagram",
-        },
-        {
-          href: "mailto:kanandha207@gmail.com",
-          icon: <FaEnvelope />,
-          className: "email",
-        },
-      ].map(({ href, icon, className }) => (
-        <motion.a
+      {socialLinks.map(({ href, icon, className, label }) => (
+        <Suspense
+          fallback={<div className="icon-placeholder"></div>}
           key={className}
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`icon ${className}`}
-          variants={fadeVariant}
-          whileHover={{ scale: 1.2, transition: { duration: 0.3 } }}
-          whileTap={{ scale: 0.9 }}
         >
-          {icon}
-        </motion.a>
+          <motion.a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`icon ${className}`}
+            variants={fadeVariant}
+            whileHover={{ scale: 1.2, transition: { duration: 0.3 } }}
+            whileTap={{ scale: 0.9 }}
+            aria-label={label}
+          >
+            {icon}
+          </motion.a>
+        </Suspense>
       ))}
     </motion.div>
   );

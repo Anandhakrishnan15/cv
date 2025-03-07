@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { projects } from "./FeaturedProjects";
+import { projects } from "./projectData"; // ✅ Importing the projects array
 import CursoeSkilss from "../skills/CursoeSkilss";
 import { Link } from "react-router-dom";
 

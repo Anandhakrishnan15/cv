@@ -102,31 +102,29 @@ const ProjectDetails = () => {
   const [currentImage, setCurrentImage] = useState(0);
 
   // Auto-slide every 5 seconds
-  useEffect(() => {
+useEffect(() => {
+  if (project.images && project.images.length > 1) {
     const interval = setInterval(() => {
-      setCurrentImage((prev) =>
-        project.images ? (prev + 1) % project.images.length : 0
-      );
+      setCurrentImage((prev) => (prev + 1) % project.images.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, [project.images]);
+  }
+}, [project.images]);;
 
   if (!project) {
     return <h2>Project Not Found</h2>;
   }
-const handleBackToProjects = () => {
-  navigate("/", { replace: true }); // Navigate to the home page without adding to history
 
-  setTimeout(() => {
-    const featuredSection = document.getElementById("featured-projects");
-    if (featuredSection) {
-      window.scrollTo({
-        top: featuredSection.offsetTop,
-        behavior: "smooth",
-      });
-    }
-  }, 300); // Increased delay to ensure the page loads first
-};
+
+  const handleBackToProjects = () => {
+    navigate("/projects"); // Ensure the correct path
+    setTimeout(() => {
+      const featuredSection = document.getElementById("featured-projects");
+      if (featuredSection) {
+        featuredSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 500); // Adjust delay if needed
+  };
 
   return (
     <motion.div
@@ -143,6 +141,7 @@ const handleBackToProjects = () => {
             src={project.images[currentImage]}
             alt={project.name}
             className="project-image"
+            loading="lazy"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}

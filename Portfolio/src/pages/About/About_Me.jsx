@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
+import { lazy, Suspense, useState, useEffect } from "react";
 import "./Aboutme.css";
-import SocialIcons from "../../components/SocialIcons";
+
+const LazySocialIcons = lazy(() => import("../../components/SocialIcons"));
+
 const aboutMeData = {
   introduction:
     "Hello! I'm a MERN Stack Developer with over 1 year of experience in web development. I specialize in creating dynamic and responsive web applications using React.js, Node.js, MongoDB, Express.js, JavaScript, and SQL. With a passion for clean code and seamless user experiences, I have worked on multiple freelancing projects, web applications, and advertisements that deliver high performance and scalability.",
@@ -38,13 +41,34 @@ const aboutMeData = {
     "Attention to Detail: Ensuring a smooth user experience with optimized performance.",
     "Continuous Learning: Staying updated with the latest industry trends and technologies.",
   ],
-  personalTouch:
-    "Outside of coding, I have a keen interest in pencil sketching, and I am working on creating my own car freshener brand. I love blending creativity with technology to develop unique and engaging projects.",
   contactCTA:
     "Looking for a skilled MERN Stack Developer for your project? Feel free to reach out!",
 };
 
 const AboutMe = () => {
+  const [loadSocialIcons, setLoadSocialIcons] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setLoadSocialIcons(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    const socialIconsSection = document.querySelector(".social-icons-section");
+    if (socialIconsSection) observer.observe(socialIconsSection);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <motion.div
       className="about-section"
@@ -162,7 +186,7 @@ const AboutMe = () => {
 
       {/* Contact Section */}
       <motion.div
-        className="about-content contact-section"
+        className="about-content contact-section social-icons-section"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.2 }}
@@ -170,34 +194,12 @@ const AboutMe = () => {
       >
         <h2 className="section-heading">Let’s Connect!</h2>
         <p className="about-text">{aboutMeData.contactCTA}</p>
-        <SocialIcons/>
-        {/* <div className="social-buttons">
-          <motion.a
-            href="mailto:your.email@example.com"
-            className="social-btn"
-            whileHover={{ scale: 1.1 }}
-          >
-            📩 Email
-          </motion.a>
-          <motion.a
-            href="https://linkedin.com/in/yourprofile"
-            className="social-btn"
-            whileHover={{ scale: 1.1 }}
-          >
-            🔗 LinkedIn
-          </motion.a>
-          <motion.a
-            href="https://wa.me/yourwhatsappnumber"
-            className="social-btn"
-            whileHover={{ scale: 1.1 }}
-          >
-            💬 WhatsApp
-          </motion.a>
-        </div> */}
+        <Suspense fallback={<p>Loading...</p>}>
+          {loadSocialIcons && <LazySocialIcons />}
+        </Suspense>
       </motion.div>
     </motion.div>
   );
 };
 
 export default AboutMe;
-

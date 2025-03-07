@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 
 const TypingText = ({
@@ -12,34 +12,30 @@ const TypingText = ({
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
-  useEffect(() => {
+  // Function to update text dynamically
+  const updateText = useCallback(() => {
     const currentPhrase = texts[textIndex];
 
     if (!isDeleting && charIndex < currentPhrase.length) {
-      setTimeout(() => {
-        setCurrentText(currentPhrase.substring(0, charIndex + 1)); // Fixes duplication issue
-        setCharIndex((prev) => prev + 1);
-      }, typingSpeed);
+      setCurrentText(currentPhrase.substring(0, charIndex + 1));
+      setCharIndex((prev) => prev + 1);
     } else if (isDeleting && charIndex > 0) {
-      setTimeout(() => {
-        setCurrentText(currentPhrase.substring(0, charIndex - 1));
-        setCharIndex((prev) => prev - 1);
-      }, deletingSpeed);
+      setCurrentText(currentPhrase.substring(0, charIndex - 1));
+      setCharIndex((prev) => prev - 1);
     } else if (!isDeleting && charIndex === currentPhrase.length) {
       setTimeout(() => setIsDeleting(true), pauseTime);
     } else if (isDeleting && charIndex === 0) {
       setIsDeleting(false);
       setTextIndex((prev) => (prev + 1) % texts.length);
     }
-  }, [
-    charIndex,
-    isDeleting,
-    textIndex,
-    texts,
-    typingSpeed,
-    deletingSpeed,
-    pauseTime,
-  ]);
+  }, [charIndex, isDeleting, textIndex, texts, pauseTime]);
+
+  useEffect(() => {
+    const speed = isDeleting ? deletingSpeed : typingSpeed;
+    const typingInterval = setInterval(updateText, speed);
+
+    return () => clearInterval(typingInterval);
+  }, [updateText, deletingSpeed, typingSpeed]);
 
   return (
     <motion.span
@@ -47,6 +43,7 @@ const TypingText = ({
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
+      aria-live="polite" // Accessibility improvement
     >
       {currentText}
       <motion.span

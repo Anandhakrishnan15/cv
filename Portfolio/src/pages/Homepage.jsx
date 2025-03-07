@@ -5,24 +5,15 @@ import CursoeSkilss from "./skills/CursoeSkilss";
 import FeaturedProjects from "./Projects/FeaturedProjects";
 import ContactMe from "./Contacts/ContactMe";
 
-
 const Homepage = () => {
-  
   return (
-    <div className="bg-transparent text-white">
-      {/* <Navbar /> */}
-      <HeroSection  />
-      {/* About Me */}
-      <AboutMeHome  />
-      {/* Skills */}
+    <div className="bg-transparent text-white space-y-20">
+      <HeroSection />
+      <AboutMeHome />
       <Skills />
-      {/* Projects */}
       <CursoeSkilss />
       <FeaturedProjects />
-      {/* Contact */}
-      <ContactMe  />
-
-     
+      <ContactMe />
     </div>
   );
 };

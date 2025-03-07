@@ -1,9 +1,9 @@
-import React from "react";
+import React, { memo } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import "./Projects.css";
 
-export const projects = [
+const projects = [
   {
     id: "girish-heat",
     name: "Girish Heat",
@@ -34,61 +34,69 @@ export const projects = [
     description: "Created engaging web advertisements for various clients.",
     details:
       "Designed and optimized web banners using modern frontend technologies and creative strategies.",
-    images: [
-      "/MS-office-Adv.png",
-      "/whatsapp-Marketing-1.png",
-      // "whatsapp-master-classAdd.png",
-    ],
+    images: ["/MS-office-Adv.png", "/whatsapp-Marketing-1.png"],
   },
 ];
+
+const fadeInVariant = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const ProjectCard = memo(({ project, index }) => (
+  <motion.div
+    key={project.id}
+    className="project-card"
+    initial={{ opacity: 0, scale: 0.8, y: 30 }}
+    whileInView={{ opacity: 1, scale: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.2 }}
+    transition={{ duration: 0.5, delay: index * 0.2 }}
+  >
+    <div className="image-gallery">
+      {project.images.map((img, imgIndex) => (
+        <motion.img
+          key={imgIndex}
+          src={img}
+          alt={project.name}
+          className="project-image"
+          loading="lazy"
+          decoding="async"
+          fetchpriority="low"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3 }}
+        />
+      ))}
+    </div>
+    <h3>{project.name}</h3>
+    <p>{project.description}</p>
+    <Link to={`/projects/${project.id}`} className="view-project-link">
+      View Project
+    </Link>
+  </motion.div>
+));
 
 const FeaturedProjects = () => {
   return (
     <section id="featured-projects" className="featured-projects">
-      <motion.h1
-      style={{fontSize:'50px'}}
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.2 }} // Trigger when 20% visible
+      <motion.h2
+        className="section-title"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.5 }}
+        variants={fadeInVariant}
       >
         Featured Projects
-      </motion.h1>
+      </motion.h2>
       <p>Check out some of my best work.</p>
+
       <div className="projects-grid">
         {projects.map((project, index) => (
-          <motion.div
-            key={index}
-            className="project-card"
-            initial={{ opacity: 0, scale: 0.8, y: 30 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.2 }} // Appears when 20% in view
-            transition={{ duration: 0.5, delay: index * 0.2 }}
-          >
-            {/* Image Gallery */}
-            <div className="image-gallery">
-              {project.images.map((img, imgIndex) => (
-                <motion.img
-                  key={imgIndex}
-                  src={img}
-                  alt={project.name}
-                  className="project-image"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
-                />
-              ))}
-            </div>
-
-            <h3>{project.name}</h3>
-            <p>{project.description}</p>
-            <Link to={`/projects/${project.id}`} className="view-project-link">
-              View Project
-            </Link>
-          </motion.div>
+          <ProjectCard key={project.id} project={project} index={index} />
         ))}
       </div>
     </section>
   );
 };
 
-export default FeaturedProjects;
+export default memo(FeaturedProjects);

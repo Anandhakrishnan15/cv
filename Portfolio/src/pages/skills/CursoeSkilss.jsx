@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Skills.css";
 import { motion } from "framer-motion";
 import { FaReact, FaNodeJs, FaDatabase, FaJs, FaCss3Alt } from "react-icons/fa";
@@ -14,10 +14,9 @@ const skills = [
   { name: "SQL", icon: <FaDatabase /> },
 ];
 
-const CursoeSkilss = () => {
+const CarouselSkills = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const totalSkills = skills.length;
-  const carouselRef = useRef(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -28,18 +27,28 @@ const CursoeSkilss = () => {
 
   return (
     <section className="skills-container">
-      <div className="carousel" ref={carouselRef}>
+      <motion.h2
+        className="skills-title"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        My Tech Stack
+      </motion.h2>
+
+      <div className="carousel">
         {skills.map((skill, index) => {
           const angle = (index - activeIndex) * (360 / totalSkills);
+
           return (
             <motion.div
-              key={index}
+              key={skill.name}
               className="skill-box"
               style={{
                 transform: `rotateY(${angle}deg) translateZ(400px)`,
               }}
-              animate={{ opacity: activeIndex === index ? 1 : 0.7 }}
-              transition={{ duration: 1 }}
+              animate={{ opacity: activeIndex === index ? 1 : 0.5 }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
             >
               <div className="skill-icon">{skill.icon}</div>
               <div className="skill-name">{skill.name}</div>
@@ -51,4 +60,4 @@ const CursoeSkilss = () => {
   );
 };
 
-export default CursoeSkilss;
+export default CarouselSkills;
