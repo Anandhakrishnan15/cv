@@ -63,7 +63,7 @@ const AboutMeHome = () => {
       </motion.h3>
 
       <motion.p
-        className="mt-4 max-w-2xl mx-auto text-lg bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent"
+        className="mt-4 max-w-2xl mx-auto text-lg bg-gradient-to-r from-yellow-300 to-amber-500 bg-clip-text text-transparent"
         variants={fadeInVariant}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
       >

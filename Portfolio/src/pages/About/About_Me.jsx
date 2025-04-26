@@ -98,7 +98,7 @@ const AboutMe = () => {
         transition={{ duration: 0.8 }}
       >
         <h2 className="section-heading">What I Do</h2>
-        <div className="skills-container">
+        <div className="About-me-skills-container">
           {aboutMeData.skills.map((skill, index) => {
             const [title, description] = skill.split(":");
             return (
@@ -125,7 +125,7 @@ const AboutMe = () => {
         transition={{ duration: 0.8 }}
       >
         <h2 className="section-heading">Experience & Achievements</h2>
-        <div className="skills-container">
+        <div className="About-me-skills-container">
           {aboutMeData.experience.map((exp, index) => (
             <motion.div
               key={index}
