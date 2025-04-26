@@ -38,32 +38,23 @@ const projects = [
   },
 ];
 
-const fadeInVariant = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
-
-const ProjectCard = memo(({ project, index }) => (
+const ProjectCard = memo(({ project }) => (
   <motion.div
-    key={project.id}
     className="project-card"
-    initial={{ opacity: 0, scale: 0.8, y: 30 }}
-    whileInView={{ opacity: 1, scale: 1, y: 0 }}
-    viewport={{ once: true, amount: 0.2 }}
-    transition={{ duration: 0.5, delay: index * 0.2 }}
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.4 }}
+    viewport={{ once: true }}
   >
     <div className="image-gallery">
-      {project.images.map((img, imgIndex) => (
-        <motion.img
-          key={imgIndex}
+      {project.images.map((img, index) => (
+        <img
+          key={index}
           src={img}
           alt={project.name}
           className="project-image"
           loading="lazy"
           decoding="async"
-          fetchpriority="low"
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.3 }}
         />
       ))}
     </div>
@@ -80,19 +71,18 @@ const FeaturedProjects = () => {
     <section id="featured-projects" className="featured-projects">
       <motion.h2
         className="section-title"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        variants={fadeInVariant}
+        viewport={{ once: true }}
       >
         Featured Projects
       </motion.h2>
       <p>Check out some of my best work.</p>
 
       <div className="projects-grid">
-        {projects.map((project, index) => (
-          <ProjectCard key={project.id} project={project} index={index} />
+        {projects.map((project) => (
+          <ProjectCard key={project.id} project={project} />
         ))}
       </div>
     </section>
