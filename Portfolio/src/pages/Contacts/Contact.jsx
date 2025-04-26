@@ -32,9 +32,9 @@ const ContactForm = () => {
       }\nEmail: ${email}\n\n${message}`;
 
       // Open email client
-      window.location.href = `mailto:kanandha207@gmail.com?subject=${encodeURIComponent(
+      window.location.href = `https://mail.google.com/mail/?view=cm&fs=1&to=kanandha207@gmail.com&su=${encodeURIComponent(
         subject
-      )}&body=${encodeURIComponent(body)}`;
+      )}&body=${encodeURIComponent(body)}`,"_blank";
 
       // Clear input fields
       setFormData({

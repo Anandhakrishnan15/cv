@@ -52,7 +52,7 @@ const SocialIcons = () => {
         label: "Instagram",
       },
       {
-        href: "mailto:kanandha207@gmail.com",
+        href: "https://mail.google.com/mail/?view=cm&fs=1&to=kanandha207@gmail.com&su=Hello&body=Hi%20there!",
         icon: <LazyFaEnvelope />,
         className: "email",
         label: "Email",
