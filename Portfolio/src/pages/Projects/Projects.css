@@ -24,7 +24,11 @@
 .project-card:hover {
   transform: scale(1.02);
 }
-
+.cursor-pointer:hover {
+  transform: scale(5.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 /* Image Gallery */
 .image-gallery {
   display: flex;

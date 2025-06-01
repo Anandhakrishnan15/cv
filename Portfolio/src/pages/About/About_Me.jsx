@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import { lazy, Suspense, useState, useEffect } from "react";
 import "./Aboutme.css";
+import { AnimatedTestimonials } from "../../components/AnimatedTestimonials";
+// import { testimonials } from "../../constants/testimonials.js";
+import { useTestimonials } from "../../components/TestimonialsProvider.jsx";
 
 const LazySocialIcons = lazy(() => import("../../components/SocialIcons"));
 
@@ -47,6 +50,10 @@ const aboutMeData = {
 
 const AboutMe = () => {
   const [loadSocialIcons, setLoadSocialIcons] = useState(false);
+  const { testimonials, loading } = useTestimonials();
+  console.log("about me ", testimonials);
+
+  
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -68,6 +75,8 @@ const AboutMe = () => {
 
     return () => observer.disconnect();
   }, []);
+ 
+  
 
   return (
     <motion.div
@@ -183,6 +192,8 @@ const AboutMe = () => {
           ))}
         </ul>
       </motion.div>
+      
+      <AnimatedTestimonials testimonials={testimonials} />
 
       {/* Contact Section */}
       <motion.div

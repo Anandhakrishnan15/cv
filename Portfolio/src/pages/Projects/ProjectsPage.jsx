@@ -2,13 +2,14 @@ import { motion } from "framer-motion";
 import { projects } from "./projectData"; // ✅ Importing the projects array
 import CursoeSkilss from "../skills/CursoeSkilss";
 import { Link } from "react-router-dom";
+import FeaturedProjects from "./FeaturedProjects";
 
 const ProjectsPage = () => {
   return (
     <div className="container mx-auto py-10 px-4">
       <CursoeSkilss />
-      <h2 className="text-3xl font-bold text-center mb-6">My Projects</h2>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* <h2 className="text-3xl font-bold text-center mb-6">My Projects</h2> */}
+      {/* <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project, index) => (
           <motion.div
             key={project.id}
@@ -33,7 +34,8 @@ const ProjectsPage = () => {
             </motion.button>
           </motion.div>
         ))}
-      </div>
+      </div> */}
+      <FeaturedProjects/>
     </div>
   );
 };

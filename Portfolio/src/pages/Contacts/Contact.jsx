@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import FormFields from "./FormFields";
 import "./ContactForm.css"; // Import the CSS file
 import SocialIcons from "../../components/SocialIcons";
-
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -10,7 +9,8 @@ const ContactForm = () => {
     email: "",
     message: "",
   });
-
+  // const { testimonials, loading } = useTestimonials();
+  // if (loading) return <p>Loading testimonials...</p>;
   const [isLoading, setIsLoading] = useState(false); // Loading state
 
   const handleChange = (e) => {
