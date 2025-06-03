@@ -51,7 +51,6 @@ const aboutMeData = {
 const AboutMe = () => {
   const [loadSocialIcons, setLoadSocialIcons] = useState(false);
   const { testimonials, loading } = useTestimonials();
-  console.log("about me ", testimonials);
 
   
 

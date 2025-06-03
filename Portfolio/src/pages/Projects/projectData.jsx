@@ -8,6 +8,17 @@ export const projects = [
     images: ["/girishHeatwebpage.png"],
   },
   {
+    id: "saiego",
+    name: "Saiego",
+    description:
+      "Developed a full-featured product showcase website for heating solutions with responsive design and SEO.",
+    details:
+      "Built the entire website using the MERN stack with a strong focus on performance, accessibility, and mobile responsiveness. Integrated structured data, product schema, and advanced SEO optimizations to improve search visibility. Designed interactive UI components and dynamic routing for individual product pages.",
+    images: [
+      "https://ik.imagekit.io/e8fzvhk22/Screenshot%202025-06-03%20135012.png?updatedAt=1748938882295",
+    ],
+  },
+  {
     id: "girish-ego",
     name: "Girish Ego",
     description:

@@ -22,8 +22,32 @@ const projects = [
     links: [{ label: "Visit Website", url: "https://girishheat.com" }],
   },
   {
+    id: "saiego",
+    name: "Saiego",
+    description:
+      "Built a modern, responsive website to showcase industrial heating products with advanced SEO integration.",
+    details: `
+      - Designed intuitive UI/UX tailored for B2B product presentation.
+      - Developed frontend and backend using the MERN stack.
+      - Implemented structured data (schema.org) for products and organization.
+      - Enhanced site speed and SEO performance across all devices.
+      - Integrated Framer Motion for smooth, interactive animations.
+    `,
+    technologies: [
+      "MERN Stack",
+      "Framer Motion",
+      "SEO",
+      "UI/UX",
+      "Schema Markup",
+    ],
+    images: [
+      "https://ik.imagekit.io/e8fzvhk22/Screenshot%202025-06-03%20135012.png?updatedAt=1748938882295",
+    ],
+    links: [{ label: "Website", url: "https://saiego.netlify.app/" }],
+  },
+  {
     id: "girish-ego",
-    name: "Girish Ego-Free Lace Ad",
+    name: "Girish Ego ",
     description:
       "Designed and optimized the website with SEO strategies to improve ranking.",
     details: `

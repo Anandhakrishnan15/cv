@@ -6,6 +6,8 @@ import FeaturedProjects from "./Projects/FeaturedProjects";
 import ContactMe from "./Contacts/ContactMe";
 import { Timeline } from "../components/Timeline";
 import { mockData } from "../constants/mockData";
+import { AnimatedTestimonials } from "../components/AnimatedTestimonials";
+import { useTestimonials } from "../components/TestimonialsProvider";
 
 // const mockData = [
 //   {
@@ -47,6 +49,8 @@ import { mockData } from "../constants/mockData";
 // ];
 
 const Homepage = () => {
+    const { testimonials, loading } = useTestimonials();
+  
   return (
     <div className="bg-transparent text-white space-y-20">
       <HeroSection />
@@ -56,6 +60,7 @@ const Homepage = () => {
       <FeaturedProjects />
       <ContactMe />
       <Timeline data={mockData} />
+        <AnimatedTestimonials testimonials={testimonials} />
     </div>
   );
 };
