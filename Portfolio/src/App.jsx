@@ -32,8 +32,9 @@ function App() {
             </Routes>
           </main>
           {/* Footer */}
-          <footer className="py-6 text-center bg-gray-900">
-            <p>
+          <footer className="py-6 text-center bg-gray-900 flex items-center justify-center gap-3">
+            <img src="/logorb.png" alt="Logo" className="h-8 w-8 object-contain" />
+            <p className="logorb.pngtext-white">
               © {new Date().getFullYear()} Anandhakrishnan. All Rights Reserved.
             </p>
           </footer>
