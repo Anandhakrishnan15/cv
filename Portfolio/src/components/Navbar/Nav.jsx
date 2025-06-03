@@ -51,7 +51,11 @@ const Nav = () => {
 
   return (
     <nav className={`navbar ${navBarVisible ? "show" : ""}`}>
-      <div className="logo">AK</div>
+      <div className="logo">
+        <Link to={'/'}>
+          <img src="/logorb.png" alt="AK Logo" className="h-12 w-auto" />
+        </Link>
+      </div>
 
       {isMobile && (
         <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
