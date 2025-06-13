@@ -7,10 +7,10 @@ export default function StickySidebar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { to: "/docs/glasscard", label: "🧊 Glass Cards" },
+    { to: "/docs/glasscard", label: "🧊 Glass Cards", disabled: false , },
     { to: "/docs/hero", label: "🚀 Hero Section", disabled: true },
     { to: "/docs/cards", label: "🃏 Cards", disabled: true },
-    { to: "/docs/forms", label: "📝 Forms", disabled: true },
+    { to: "/docs/contact", label: "📝 Forms", disabled: true },
     { to: "/docs/tables", label: "📊 Tables", disabled: true },
     { to: "/docs/buttons", label: "🔘 Buttons", disabled: true },
     { to: "/docs/modals", label: "📦 Modals", disabled: true },
