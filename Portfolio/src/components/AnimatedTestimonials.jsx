@@ -1,7 +1,5 @@
 "use client";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa"; // Font Awesome
-
-
 import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
 import md5 from "blueimp-md5";
