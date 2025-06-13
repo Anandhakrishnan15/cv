@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import { FaSun, FaMoon } from "react-icons/fa";
-import guideData from "./Props/PropsData/glassCardData";
+// import guideData from "./Props/PropsData/glassCardData";
 import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 import { a11yDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import StickySidebar from "./StickySidebar";
+import componentMap from "./Props/ComponentMap";
+// import GlassCard from "./Props/GlassCardDocs/GlassCard";
 
-export default function ComponentDocsPage() {
+export default function ComponentDocsPage({guideData}) {
   const [copied, setCopied] = useState(false);
   const [isDark, setIsDark] = useState(true);
   const [isExpanded, setIsExpanded] = useState(false);
+
+  const ComponentToRender = componentMap[guideData.componentName]; // 🔁 Dynamically load
 
   const handleCopy = async () => {
     try {
@@ -33,7 +37,9 @@ export default function ComponentDocsPage() {
       <div className="space-y-4 list-decimal list-inside mt-4">
         {steps.map((item, index) => (
           <div key={index}>
-            <p className="font-medium text-white">Step {stepType} : {item.title}</p>
+            <p className="font-medium text-white">
+              Step {stepType} : {item.title}
+            </p>
             <p className="text-sm text-gray-300 whitespace-pre-line">
               {item.detail}
             </p>
@@ -94,27 +100,14 @@ export default function ComponentDocsPage() {
                 : "bg-white border-black/10"
             }`}
           >
-            <div
-              className={`rounded-xl p-6 shadow-md transition-all max-w-sm text-center ${
-                isDark
-                  ? "bg-white/10 border border-white/20 text-white"
-                  : "bg-black/10 border border-black/20 text-black"
-              }`}
-            >
-              <h2 className="text-xl font-semibold mb-2">
-                {guideData.preview.title}
-              </h2>
-              <p className="text-sm mb-4">{guideData.preview.description}</p>
-              <button
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                  isDark
-                    ? "bg-white/20 hover:bg-white/30 text-white"
-                    : "bg-black/10 hover:bg-black/20 text-black"
-                }`}
-              >
-                {guideData.preview.buttonText}
-              </button>
-            </div>
+            {/* 👇 Dynamic Component Rendering */}
+            {ComponentToRender ? (
+              <ComponentToRender />
+            ) : (
+              <p className="text-red-400">
+                ⚠️ Component not found: {guideData.componentName}
+              </p>
+            )}
           </div>
         </section>
 
