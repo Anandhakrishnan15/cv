@@ -9,6 +9,8 @@ import ProjectsPage from "./pages/Projects/ProjectsPage";
 import NotFound from "./components/NotFound";
 import DynamicTitle from "./components/DynamicTitle";
 import { HelmetProvider } from "react-helmet-async";
+import { ToastContainer } from "react-toastify";
+import DocsWrapper from "./components/DocsWrapper";
 
 function App() {
   return (
@@ -23,22 +25,33 @@ function App() {
           <Nav />
           <main className="container mx-auto px-4">
             <Routes>
+              {/* Static Pages */}
               <Route path="/" element={<Homepage />} />
               <Route path="/about" element={<AboutMe />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/projects" element={<ProjectsPage />} />
               <Route path="/projects/:projectId" element={<ProjectDetails />} />
-              <Route path="*" element={<NotFound />} /> {/* 404 Page */}
+
+              {/* Modular Component Pages */}
+              <Route path="/docs/:component" element={<DocsWrapper />} />
+
+              {/* 404 Not Found Page */}
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
           {/* Footer */}
           <footer className="py-6 text-center bg-gray-900 flex items-center justify-center gap-3">
-            <img src="/logorb.png" alt="Logo" className="h-8 w-8 object-contain" />
-            <p className="logorb.pngtext-white">
+            <img
+              src="/logorb.png"
+              alt="Logo"
+              className="h-8 w-8 object-contain"
+            />
+            <p className="text-white">
               © {new Date().getFullYear()} Anandhakrishnan. All Rights Reserved.
             </p>
           </footer>
         </Router>
+        <ToastContainer position="bottom-right" theme="dark" />
       </div>
     </HelmetProvider>
   );
