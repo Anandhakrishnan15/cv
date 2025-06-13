@@ -5,6 +5,7 @@ import {
 
 // glassCardGuideData.js
 const glassCardGuideData = {
+  componentName: "GlassCard",
   title: "🧊 GlassCard Component Guide",
   dependencies: [
     {
@@ -56,24 +57,6 @@ const glassCardGuideData = {
     },
   ],
 
-  // step1: "Create the Component File",
-  // detail1:
-  //   "Navigate to your project directory and create a file at: `src/components/GlassCard/GlassCard.jsx`",
-
-  // step2: "Copy the Component Code",
-  // detail2:
-  //   'Copy the entire GlassCard component code provided below in the "📄 Component Code" section. You can either:\n- Click the copy button on the top right of the code block, or\n- Select and copy the code manually.',
-
-  // step3: "Paste the Code",
-  // detail3: "Paste it inside your `GlassCard.jsx` file.",
-
-  // step4: "Customize as You Wish",
-  // detail4:
-  //   "The component has default props already set. You can:\n- Keep them as they are\n- Modify the values like title, color classes, and button text\n- Fully change the style with your own Tailwind CSS classes",
-
-  // step5: "You're Done!",
-  // detail5:
-  //   "Now your GlassCard component is ready. Use it anywhere in your project by importing it. Feel free to customize and make it your own! 🎨",
   compnentFile: `src/components/GlassCard/GlassCard.jsx`,
   componentCode: glassCardComponentCode,
   usageCode: glassCardUsageExample,
