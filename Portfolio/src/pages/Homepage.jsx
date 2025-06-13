@@ -8,6 +8,7 @@ import { Timeline } from "../components/Timeline";
 import { mockData } from "../constants/mockData";
 import { AnimatedTestimonials } from "../components/AnimatedTestimonials";
 import { useTestimonials } from "../components/TestimonialsProvider";
+import StickySidebar from "../components/StickySidebar";
 
 // const mockData = [
 //   {
@@ -53,14 +54,16 @@ const Homepage = () => {
   
   return (
     <div className="bg-transparent text-white space-y-20">
+      <StickySidebar />
       <HeroSection />
+
       <AboutMeHome />
       <Skills />
       <CursoeSkilss />
       <FeaturedProjects />
       <ContactMe />
       <Timeline data={mockData} />
-        <AnimatedTestimonials testimonials={testimonials} />
+      <AnimatedTestimonials testimonials={testimonials} />
     </div>
   );
 };

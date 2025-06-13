@@ -10,9 +10,9 @@ const HeroSection = () => {
   return (
     <motion.section
       className="Herowraper relative overflow-hidden flex flex-col md:flex-row items-center justify-between p-6 md:p-12"
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 1, ease: "easeInOut" }} // cubic-bezier for smooth ease
     >
       {/* Text Content - SEO Optimized */}
       <header className="hero-D w-full md:w-1/2 text-left space-y-4 md:space-y-6">

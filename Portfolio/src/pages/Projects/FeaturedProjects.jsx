@@ -1,67 +1,29 @@
-"use client";
-
 import React, { memo } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { CardContainer, CardBody, CardItem } from "../../components/threed-card";
+import {
+  CardContainer,
+  CardBody,
+  CardItem,
+} from "../../components/threed-card";
 import "./Projects.css";
 import { projects } from "./projectData";
 
-// const projects = [
-//   {
-//     id: "girish-heat",
-//     name: "Girish Heat",
-//     description:
-//       "Developed the website and performed SEO optimization for better visibility.",
-//     details: "Used React, Node.js, and SEO strategies to enhance visibility.",
-//     images: ["/girishHeatwebpage.png"],
-//   },
-//   {
-//     id: "saiego",
-//     name: "Saiego",
-//     description:
-//       "Developed a full-featured product showcase website for heating solutions with responsive design and SEO.",
-//     details:
-//       "Built the entire website using the MERN stack with a strong focus on performance, accessibility, and mobile responsiveness. Integrated structured data, product schema, and advanced SEO optimizations to improve search visibility. Designed interactive UI components and dynamic routing for individual product pages.",
-//     images: [
-//       "https://ik.imagekit.io/e8fzvhk22/Screenshot%202025-06-03%20135012.png?updatedAt=1748938882295",
-//     ],
-//   },
-//   {
-//     id: "girish-ego",
-//     name: "Girish Ego",
-//     description:
-//       "Designed and optimized the website with SEO strategies to improve ranking.",
-//     details: "Worked on UI/UX, SEO, and backend enhancements using MERN stack.",
-//     images: ["/Girish-Ego_webpage.png"],
-//   },
-//   {
-//     id: "profile-page",
-//     name: "Profile Page",
-//     description: "Designed and developed a dynamic profile page for users.",
-//     details:
-//       "Implemented React, Node.js, and MongoDB to create a responsive and user-friendly profile page.",
-//     images: ["/sportsolution-page-pdf.png", "/ent-templat-pdf.png"],
-//   },
-//   {
-//     id: "web-advertisements",
-//     name: "Web Advertisements",
-//     description: "Created engaging web advertisements for various clients.",
-//     details:
-//       "Designed and optimized web banners using modern frontend technologies and creative strategies.",
-//     images: ["/MS-office-Adv.png", "/whatsapp-Marketing-1.png"],
-//   },
-// ];
-
-const ProjectCard3D = ({ project }) => {
+const ProjectCard3D = ({ project, index }) => {
   return (
     <div className="perspective-1000">
-      {/* // Inside your map/project render: */}
       <motion.div
-        whileHover={{
-          scale: 1.02,
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{
+          type: "spring",
+          stiffness: 80,
+          damping: 14,
+          duration: 0.6,
+          delay: index * 0.1,
         }}
-        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        viewport={{ once: true, amount: 0.2 }}
+        whileHover={{ scale: 1.02 }}
         className="w-full max-w-[320px] sm:max-w-sm px-2 mb-6"
       >
         <CardContainer
@@ -136,18 +98,20 @@ const FeaturedProjects3D = () => {
         className="section-title text-3xl font-bold mb-6"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true }}
       >
         Featured Projects
       </motion.h2>
-      <p className="mb-10 text-gray-700 dark:text-gray-300">
-        Check out some of my best work.
+
+      <p className="mb-10 text-gray-700 dark:text-gray-300 text-center max-w-xl mx-auto">
+        Check out some of my best work — built with modern web technologies and
+        polished user experiences.
       </p>
 
-      <div className="flex flex-wrap justify-center">
-        {projects.map((project) => (
-          <ProjectCard3D key={project.id} project={project} />
+      <div className="flex flex-wrap justify-center gap-y-8">
+        {projects.map((project, index) => (
+          <ProjectCard3D key={project.id} project={project} index={index} />
         ))}
       </div>
     </section>

@@ -28,7 +28,7 @@ const CarouselSkills = () => {
   return (
     <section className="skills-container">
       <motion.h2
-        className="skills-title"
+        className="skills-title text-[#f59e0b]"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}

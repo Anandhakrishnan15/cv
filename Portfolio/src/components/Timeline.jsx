@@ -50,7 +50,7 @@ export const Timeline = ({ data }) => {
                   <div className="w-3 h-3 rounded-full bg-neutral-400 dark:bg-neutral-600" />
                 </div>
               </div>
-              <title className="hidden md:block text-4xl font-extrabold bg-gradient-to-r bg-gradient-to-r from-gray-400 via-gray-500 to-gray-600 text-transparent bg-clip-text tracking-tight leading-tight">
+              <title className="hidden md:block text-4xl font-extrabold  bg-gradient-to-r from-gray-400 via-gray-500 to-gray-600 text-transparent bg-clip-text tracking-tight leading-tight">
                 {item.title}
               </title>
             </div>
